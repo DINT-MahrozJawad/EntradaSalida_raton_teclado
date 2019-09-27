@@ -1,0 +1,24 @@
+﻿<Window x:Class="EntradaSalida_raton_teclado.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EntradaSalida_raton_teclado"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" PreviewMouseLeftButtonUp="Grid_PreviewMouseLeftButtonUp" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" PreviewMouseRightButtonDown="Grid_PreviewMouseRightButtonDown" PreviewMouseRightButtonUp="Grid_PreviewMouseRightButtonUp">
+    <Grid>
+        <TextBox x:Name="TesxtBox1" CharacterCasing="Upper" FontSize="20" HorizontalAlignment="Left" Height="33" Margin="81,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" GotFocus="TextBox1_GotFocus" MouseEnter="TesxtBox1_MouseEnter" MouseLeave="TextBox_MouseLeave"/>
+        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="81,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="163" Text="TextBox 1"/>
+        <TextBox x:Name="TextBox2" FontSize="20" HorizontalAlignment="Left" Height="33" Margin="81,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" GotFocus="TextBox2_GotFocus" MouseEnter="TesxtBox2_MouseEnter" MouseLeave="TextBox_MouseLeave" KeyDown="TesxtBox2_KeyDown"/>
+        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="81,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="163"><Run Text="TextBox "/><Run Text="2"/></TextBlock>
+        <TextBox x:Name="TesxtBox3" FontSize="20" HorizontalAlignment="Left" Height="33" Margin="81,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" GotFocus="TextBox3_GotFocus" MouseEnter="TesxtBox3_MouseEnter" MouseLeave="TextBox_MouseLeave"/>
+        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="81,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="163"><Run Text="TextBox "/><Run Text="3"/></TextBlock>
+        <TextBox x:Name="Foco" FontSize="20" HorizontalAlignment="Left" Height="33" Margin="460,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" MouseEnter="Foco_MouseEnter" IsEnabled="False" />
+        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="460,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="163" Text="Foco"/>
+        <TextBox x:Name="RatonSobre" FontSize="20" HorizontalAlignment="Left" Height="33" Margin="460,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" IsEnabled="False"/>
+        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="460,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="163" Text="Ratón sobre"/>
+        <TextBox x:Name="CLickDerecho" FontSize="20" HorizontalAlignment="Left" Height="33" Margin="605,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" IsEnabled="False"/>
+        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="426,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="110" Text="Botones"/>
+        <TextBox x:Name="CLickIzquierdo" FontSize="20" HorizontalAlignment="Left" Height="33" Margin="541,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" IsEnabled="False"/>
+    </Grid>
+</Window>
