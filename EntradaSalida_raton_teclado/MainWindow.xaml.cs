@@ -25,51 +25,14 @@ namespace EntradaSalida_raton_teclado
             InitializeComponent();
         }
 
-        private void TextBox1_GotFocus(object sender, RoutedEventArgs e)
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            Foco.Text = "TextBox 1";
-        }
-        private void TextBox2_GotFocus(object sender, RoutedEventArgs e)
-        {
-            Foco.Text = "TextBox 2";
-        }
-        private void TextBox3_GotFocus(object sender, RoutedEventArgs e)
-        {
-            Foco.Text = "TextBox 3";
+            Foco.Text = ((TextBox)sender).Name;
         }
 
-        private void TesxtBox1_MouseEnter(object sender, MouseEventArgs e)
+        private void TextBox_MouseEnter(object sender, MouseEventArgs e)
         {
-            RatonSobre.Text = "TextBox 1";
-        }
-        private void TesxtBox2_MouseEnter(object sender, MouseEventArgs e)
-        {
-            RatonSobre.Text = "TextBox 2";
-        }
-        private void TesxtBox3_MouseEnter(object sender, MouseEventArgs e)
-        {
-            RatonSobre.Text = "TextBox 3";
-        }
-
-        private void Grid_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            CLickDerecho.Background = Brushes.Green;
-            e.Handled = false;
-        }
-
-        private void Grid_PreviewMouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CLickDerecho.Background = Brushes.White;
-        }
-
-        private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            CLickIzquierdo.Background = Brushes.Green;
-        }
-
-        private void Grid_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CLickIzquierdo.Background = Brushes.White;
+            RatonSobre.Text = ((TextBox)sender).Name;
         }
 
         private void TextBox_MouseLeave(object sender, MouseEventArgs e)
@@ -77,17 +40,57 @@ namespace EntradaSalida_raton_teclado
             RatonSobre.Text = "";
         }
 
-        private void Foco_MouseEnter(object sender, MouseEventArgs e)
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (((TextBox)sender).Name == "TextBox2" && e.Key.ToString() == ConsoleKey.F1.ToString())
+                TextBox2.Text = "Ayuda";
+
+            if (((TextBox)sender).Name == "TextBox3")
+            {
+                string sinVocales = QuitaVocales(TextBox3.Text);
+                TextBox3.Text = sinVocales;
+                //TextBox3.Text = QuitaVocales(TextBox3.Text);
+            }
+        }
+        
+        private void TextBox3_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private static string QuitaVocales(string txt)
+        {
+            string vocales = "aeiouAEIOU";
+            string txtVocalesQuitado = "";
+
+            for (int i = 0; i < txt.Length; i++)
+            {
+                if (!vocales.Contains(txt[i]))
+                    txtVocalesQuitado += txt[i];
+            }
+
+            return txtVocalesQuitado;
+        }
+
+        private void Foco_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Foco.Text = "";
         }
 
-        private void TesxtBox2_KeyDown(object sender, KeyEventArgs e)
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.Key.ToString() == ConsoleKey.F1.ToString())
-            {
-                TextBox2.Text = "Ayuda";
-            }
+            if (e.LeftButton == MouseButtonState.Pressed)
+                CLickIzquierdo.Background = Brushes.Green;
+            if (e.RightButton == MouseButtonState.Pressed)
+                CLickDerecho.Background = Brushes.Green;
+        }
+
+        private void Window_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Released)
+                CLickIzquierdo.Background = Brushes.White;
+            if (e.RightButton == MouseButtonState.Released)
+                CLickDerecho.Background = Brushes.White;
         }
     }
 }
