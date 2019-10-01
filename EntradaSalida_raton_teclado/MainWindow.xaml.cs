@@ -49,14 +49,10 @@ namespace EntradaSalida_raton_teclado
             {
                 string sinVocales = QuitaVocales(TextBox3.Text);
                 TextBox3.Text = sinVocales;
-                //TextBox3.Text = QuitaVocales(TextBox3.Text);
+                TextBox3.CaretIndex = TextBox3.Text.Length;
             }
         }
         
-        private void TextBox3_KeyUp(object sender, KeyEventArgs e)
-        {
-
-        }
 
         private static string QuitaVocales(string txt)
         {
@@ -68,7 +64,6 @@ namespace EntradaSalida_raton_teclado
                 if (!vocales.Contains(txt[i]))
                     txtVocalesQuitado += txt[i];
             }
-
             return txtVocalesQuitado;
         }
 
